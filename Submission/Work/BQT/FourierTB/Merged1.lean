@@ -147,33 +147,28 @@ def targetExponentTB19 : ℝ := 1 - statedSavingTB19
 /-- Fallback exponent. -/
 def fallbackExponentTB19 : ℝ := 1 - 102210/(10:ℝ)^8
 
-/-- `π < 3.1416` (Mathlib's `Real.pi_lt_d4`): with `3 < π` (`Real.pi_gt_three`), the only facts about the stated
-saving `statedSavingTB19 = π/1000` that the number facts below use. -/
+/-- `π < 3.1416` (Mathlib's `Real.pi_lt_d4`) and `3 < π` (`Real.pi_gt_three`): the π-facts of the original
+`π/1000` entry — `statedSavingTB19` is now the concrete rational `3148496239/10^12` (see `Goal.lean`) — still
+consumed by `Main.lean`'s `decimal_rangeTB19`. -/
 lemma pi_lt_TB19 : Real.pi < 3927 / 1250 := lt_of_lt_of_le Real.pi_lt_d4 (by norm_num)
 
 lemma alphaTB19_lt_target : alphaTB19 < targetExponentTB19 := by
   norm_num [alphaTB19, targetExponentTB19, statedSavingTB19]
-  linarith [pi_lt_TB19]
 lemma alphaTB19_lt_fallback : alphaTB19 < fallbackExponentTB19 := by norm_num [alphaTB19, fallbackExponentTB19]
 lemma target_lt_fallbackTB19 : targetExponentTB19 < fallbackExponentTB19 := by
   norm_num [targetExponentTB19, fallbackExponentTB19, statedSavingTB19]
-  linarith [Real.pi_gt_three]
 lemma target_posTB19 : 0 < targetExponentTB19 := by
   norm_num [targetExponentTB19, statedSavingTB19]
-  linarith [pi_lt_TB19]
 lemma target_lt_oneTB19 : targetExponentTB19 < 1 := by
   norm_num [targetExponentTB19, statedSavingTB19]
-  linarith [Real.pi_gt_three]
 lemma fallback_lt_oneTB19 : fallbackExponentTB19 < 1 := by norm_num [fallbackExponentTB19]
 lemma target_lt_decimalTB19 : targetExponentTB19 < decimalExponent := by
   norm_num [targetExponentTB19, decimalExponent, statedSavingTB19]
-  linarith [Real.pi_gt_three]
 lemma fallback_lt_decimalTB19 : fallbackExponentTB19 < decimalExponent := by
   norm_num [fallbackExponentTB19, decimalExponent]
 lemma target_lt_thetaTB19 : targetExponentTB19 < theta := by
   have h : targetExponentTB19 < alpha := by
     norm_num [targetExponentTB19, alpha, statedSavingTB19]
-    linarith [Real.pi_gt_three]
   exact h.trans Skies.alpha_theta
 lemma fallback_lt_thetaTB19 : fallbackExponentTB19 < theta :=
   (show fallbackExponentTB19 < alpha by norm_num [fallbackExponentTB19, alpha]).trans Skies.alpha_theta
