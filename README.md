@@ -54,3 +54,16 @@ bigospeedrun/verifier; per its [direct-submissions policy]
 (https://github.com/bigospeedrun/verifier/blob/main/docs/direct-submissions.md),
 "credit follows the public record": KARTAL is named first on the row, the filer of this
 package is darkhipo.
+
+---
+
+## Why this repo is up
+
+Public evidence and credit hygiene: Halit Ziya KARTAL's proof restated at the rate it actually certifies — so the board credits the proof's true saving, with the full attribution chain named.
+
+[BigO-Hunter](https://github.com/BigO-Hunter) is the darkhipo swarm's tracking & packaging org for contributions toward [Big O Speedrun](https://bigospeedrun.com) — a companion, never the project. Org story: [profile](https://github.com/BigO-Hunter/.github) · [bigo-hunter.github.io](https://bigo-hunter.github.io).
+
+## What work can be done here
+
+The refile is stated. Open work: independent verification of the rate extraction; route processing on the direct-submission path.
+
